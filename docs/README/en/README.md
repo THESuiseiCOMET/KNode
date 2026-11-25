@@ -54,7 +54,7 @@ After the JSON passes validation, KNode places nodes that lack graph coordinates
 
 ## Download and Installation
 
-Download links will be available when the official installer is released. On Windows x64, download and run the `-setup.exe` installer once it is available. The desktop app requires Microsoft Edge WebView2, and the installer can download the runtime if needed.
+On Windows x64, download the `-setup.exe` installer from [GitHub Releases](https://github.com/THESuiseiCOMET/KNode/releases) and run it. The desktop app requires Microsoft Edge WebView2, and the installer can download the runtime if needed.
 
 ## Tech Stack
 

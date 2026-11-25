@@ -54,7 +54,7 @@ JSON 通过校验后，KNode 会为缺少图坐标的节点补位。图连线端
 
 ## 下载与安装
 
-本页暂未提供下载链接。正式安装包提供后，Windows x64 用户可下载并运行 `-setup.exe`。桌面界面依赖 Microsoft Edge WebView2，安装包配置了 WebView2 下载引导。
+Windows x64 用户可前往 [GitHub Releases](https://github.com/THESuiseiCOMET/KNode/releases)，下载并运行 `-setup.exe` 安装包。桌面应用需要 Microsoft Edge WebView2，安装包可在需要时下载该运行时。
 
 ## 技术栈
 
