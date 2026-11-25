@@ -2,6 +2,10 @@
   简体中文 · <a href="docs/README/en/README.md">English</a>
 </p>
 
+<p align="center">
+  <img src="src-tauri/icons/64x64.png" alt="KNode Logo" width="64" height="64" />
+</p>
+
 # KNode
 
 KNode 是一款本地优先的 Windows 项目与知识整理工具。你可以用树视图拆解项目、归类资料，再切到图视图查看组件依赖、工作流程或知识关联。同一个节点可以在两种视图中使用。节点内部文件随项目保存在本地，关联的外部文件保留在原位置。
