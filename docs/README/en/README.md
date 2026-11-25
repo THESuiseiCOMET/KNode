@@ -1,4 +1,6 @@
-[简体中文](../zh-CN/README.md) | **English**
+<p align="center">
+  <a href="../../../README.md">简体中文</a> · English
+</p>
 
 # KNode
 
