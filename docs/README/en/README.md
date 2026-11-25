@@ -34,6 +34,20 @@ Use Graph View to explore dependencies, workflows, and connections across nodes.
 
 ![KNode Graph View showing connections between nodes on the canvas](../../images/graph-view.png)
 
+## Node Management
+
+### Node Files
+
+Open the file panel on a node card to view its project files and links to external files.
+
+![KNode node file panel showing the node files and external files sections](../../images/node-files.png)
+
+### Node Properties
+
+Open the properties panel on a node card to edit its name, weight, and color.
+
+![KNode node properties panel showing the name, weight, and color controls](../../images/node-properties.png)
+
 ## Generate a Project with AI
 
 Give an AI assistant the [V3 project format specification](../../DATA_SCHEMA/en/V3.md) and describe the project you want. Ask it to generate a KNode project as plain JSON. Save the result as UTF-8 in `Study Plan/Study Plan.json` and set the JSON `name` to `Study Plan` so it matches both the folder name and the filename before `.json`. In the KNode desktop app, choose **Open project** and select the JSON file.

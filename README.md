@@ -38,6 +38,20 @@ KNode 结合了德语 **Knoten** 和英语 **Node**。两个词都可以指「�
 
 ![KNode 图视图，在画布中展示节点之间的连接关系](docs/images/graph-view.png)
 
+## 节点管理
+
+### 节点文件管理
+
+展开节点卡片的文件面板，查看节点文件和关联的外部文件。
+
+![KNode 节点文件面板，显示节点文件和外部文件区域](docs/images/node-files.png)
+
+### 节点属性管理
+
+在节点卡片的属性面板中编辑名称、权重和颜色。
+
+![KNode 节点属性面板，显示名称、权重和颜色控件](docs/images/node-properties.png)
+
 ## AI 辅助生成项目
 
 把 [V3 数据格式说明](docs/DATA_SCHEMA/zh-CN/V3.md) 和你的项目需求交给 AI，请它生成可直接打开的 KNode JSON。生成后，将纯 JSON 以 UTF-8 保存为 `学习计划/学习计划.json`，并将 JSON 内的 `name` 写为 `学习计划`。在 KNode 桌面端选择「打开项目」，打开这个 JSON。
