@@ -1,0 +1,277 @@
+/* App-only theme. Node accent colors and file/project data remain unchanged. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --dark-bg: #101010;
+  --dark-panel: #1c1c1c;
+  --dark-input: #151515;
+  --dark-hover: #303030;
+  --dark-line: #3e3e3e;
+  --dark-text: #e8e8e8;
+  --dark-muted: #b3b3b3;
+  color: var(--dark-text);
+  background: var(--dark-bg);
+}
+[data-theme='dark'] :is(.app-shell, .welcome) {
+  background: var(--dark-bg);
+  color: var(--dark-text);
+}
+[data-theme='dark'] .workspace {
+  background-color: var(--dark-bg);
+  background-image:
+    linear-gradient(#202020 1px, transparent 1px),
+    linear-gradient(90deg, #202020 1px, transparent 1px),
+    linear-gradient(#303030 1px, transparent 1px),
+    linear-gradient(90deg, #303030 1px, transparent 1px);
+}
+[data-theme='dark'] .vue-flow {
+  background: transparent;
+  --vf-selection-background-color: #dedede18;
+  --vf-selection-border: 1px solid #bebebe;
+}
+[data-theme='dark'] .titlebar {
+  background: #171717;
+  color: var(--dark-text);
+}
+[data-theme='dark'] :is(button, input, select, textarea) {
+  color: var(--dark-text);
+  border-color: var(--dark-line);
+}
+[data-theme='dark'] button {
+  background: var(--dark-panel);
+}
+[data-theme='dark'] button:hover {
+  background: var(--dark-hover);
+}
+[data-theme='dark'] button:disabled {
+  opacity: 0.4;
+}
+[data-theme='dark'] :is(input:not([type='range']):not([type='color']), select, textarea) {
+  background: var(--dark-input);
+  color: var(--dark-text);
+  border-color: var(--dark-line);
+}
+[data-theme='dark'] .primary {
+  background: #dedede;
+  color: var(--dark-panel);
+  border-color: #dedede;
+}
+[data-theme='dark'] .primary:hover {
+  background: #f1f1f1;
+}
+[data-theme='dark'] .titlebar button {
+  background: transparent;
+}
+[data-theme='dark'] .titlebar button:hover {
+  background: var(--dark-hover);
+}
+[data-theme='dark'] .titlebar .window-close:hover {
+  background: #b74343;
+  color: #fff;
+}
+[data-theme='dark']
+  :is(
+    .context-menu,
+    .app-menu,
+    .path-menu,
+    .title-search,
+    .title-search-results,
+    .modal,
+    .settings-dialog,
+    .card-file-dialog,
+    .batch-color,
+    .file-context-menu
+  ) {
+  background: var(--dark-panel);
+  color: var(--dark-text);
+  border-color: var(--dark-line);
+}
+[data-theme='dark'] .title-search input {
+  background: transparent;
+}
+[data-theme='dark'] .title-search-results .active,
+[data-theme='dark'] .settings-layout nav button[aria-pressed='true'],
+[data-theme='dark'] .card-file-row.active {
+  background: #373737;
+  color: #f5f5f5;
+}
+[data-theme='dark'] .settings-layout > nav {
+  border-color: var(--dark-line);
+}
+[data-theme='dark']
+  :is(
+    small,
+    .welcome p,
+    .canvas-empty,
+    .card-file-row,
+    .file-section-title,
+    .card-icon,
+    .palette-error
+  ) {
+  color: var(--dark-muted);
+}
+[data-theme='dark'] .forest-node.integrated-card {
+  background: var(--dark-panel);
+  border-color: color-mix(in srgb, var(--node-color) 48%, #505050);
+  box-shadow: 0 3px 14px #0003;
+}
+[data-theme='dark'] .integrated-card .card-titlebar {
+  background: color-mix(in srgb, var(--node-color) 24%, var(--dark-panel));
+}
+[data-theme='dark']
+  :is(
+    .integrated-card .node-title,
+    .card-properties > label,
+    .color-label,
+    .card-progress-slot .node-progress b,
+    .weight-editor .weight-value
+  ) {
+  color: var(--dark-text);
+}
+[data-theme='dark'] .integrated-card.selected {
+  border-color: #c5c5c5;
+  box-shadow: 0 0 0 2px #c4c4c455;
+}
+[data-theme='dark'] .card-tabs button {
+  background: #292929;
+  color: var(--dark-muted);
+}
+[data-theme='dark'] .card-tabs button[aria-pressed='true'] {
+  background: #373737;
+  color: #f5f5f5;
+}
+[data-theme='dark']
+  :is(
+    .card-tabs button:hover,
+    .card-icon:hover,
+    .card-file-row:hover,
+    .recent-project-list button:hover
+  ) {
+  background: var(--dark-hover);
+}
+[data-theme='dark'] .recent-project-list button {
+  background: transparent;
+}
+[data-theme='dark'] .capsule-rail:not(.brightness-rail) {
+  background: #595959;
+}
+[data-theme='dark'] .capsule-fill {
+  background: #dedede;
+}
+[data-theme='dark'] .weight-ticks i {
+  background: #9e9e9e;
+}
+[data-theme='dark'] :is(.danger, .error, .file-directory-error, .card-file-row.invalid) {
+  color: #f1a18c;
+}
+[data-theme='dark'] :is(.error-banner, .card-notice p) {
+  background: #432e2b;
+  border-color: #986450;
+  color: #ffd0b9;
+}
+[data-theme='dark'] .modal-backdrop {
+  background: #08080899;
+}
+[data-theme='dark'] .color-swatch {
+  border-color: #858585;
+}
+[data-theme='dark'] :is(.section-list, .card-properties, .context-menu) {
+  scrollbar-color: #797979 var(--dark-panel);
+}
+[data-theme='dark'] .vue-flow__handle {
+  --knode-handle-color: #bdbdbd;
+}
+.context-menu .menu-group-start {
+  margin-top: 5px;
+  padding-top: 10px;
+  border-top: 1px solid #dce6d9;
+  border-radius: 0;
+}
+[data-theme='dark'] .context-menu .menu-group-start {
+  border-top-color: var(--dark-line);
+}
+
+/* The welcome primary action stays white in dark mode. */
+[data-theme='dark'] .welcome-actions .primary {
+  background: #fff;
+  color: #1c1c1c;
+  border-color: #fff;
+}
+[data-theme='dark'] .welcome-actions .primary:hover {
+  background: #ebebeb;
+  border-color: #ebebeb;
+}
+/* One composited crossfade, independent of the number of canvas nodes. */
+html.theme-transition::view-transition-old(root) {
+  animation: theme-fade-out 260ms ease-in-out both;
+  mix-blend-mode: normal;
+}
+html.theme-transition::view-transition-new(root) {
+  animation: theme-fade-in 260ms ease-in-out both;
+  mix-blend-mode: normal;
+}
+@keyframes theme-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes theme-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+/* Older WebViews use color transitions without moving or resizing controls. */
+html.theme-transition-fallback
+  :is(
+    .app-shell,
+    .welcome,
+    .workspace,
+    .titlebar,
+    .integrated-card,
+    .card-titlebar,
+    .context-menu,
+    .settings-dialog,
+    .title-search,
+    .title-search-results,
+    button,
+    input,
+    select,
+    textarea
+  ) {
+  transition-property: background-color, color, border-color, box-shadow;
+  transition-duration: 260ms;
+  transition-timing-function: ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transition::view-transition-old(root),
+  html.theme-transition::view-transition-new(root) {
+    animation: none;
+  }
+  html.theme-transition-fallback * {
+    transition: none;
+  }
+}
+
+/* Neutral interaction states; saved node accents and color controls retain their colors. */
+[data-theme='dark'] :is(input[type='checkbox'], input[type='radio']) {
+  accent-color: #dedede;
+}
+[data-theme='dark'] :is(input, select, textarea):focus {
+  border-color: #999999;
+  box-shadow: 0 0 0 3px #c9c9c924;
+}
+[data-theme='dark'] :is(button, .progress-slider):focus-visible,
+[data-theme='dark'] .vue-flow__node:focus-visible .forest-node {
+  box-shadow: 0 0 0 3px #c9c9c930;
+}
+[data-theme='dark'] :is(.card-editor button, .section-list, .card-properties):focus-visible {
+  box-shadow: inset 0 0 0 2px #c9c9c940;
+}
+[data-theme='dark'] .card-editor input[type='range']:focus {
+  box-shadow: none;
+}
+[data-theme='dark'] .card-editor input[type='range']:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px #c9c9c930;
+}
+[data-theme='dark'] .color-presets button[aria-pressed='true'] {
+  outline-color: #c5c5c5;
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "KNode",
+  "version": "0.1.0",
+  "identifier": "com.foresteditor.desktop",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://127.0.0.1:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "KNode",
+        "width": 1200,
+        "height": 800,
+        "minWidth": 720,
+        "minHeight": 500,
+        "dragDropEnabled": false,
+        "decorations": false,
+        "shadow": true,
+        "visible": false,
+        "resizable": true,
+        "backgroundColor": "#f1f4f6",
+        "theme": "Light"
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src ipc: http://ipc.localhost; object-src 'none'; frame-src 'none'",
+      "devCsp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' ipc: http://ipc.localhost ws://127.0.0.1:1420; object-src 'none'; frame-src 'none'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "icon": ["icons/icon.ico", "icons/icon.png"],
+    "targets": ["nsis"],
+    "windows": {
+      "nsis": {
+        "installerIcon": "icons/icon.ico",
+        "installMode": "currentUser",
+        "displayLanguageSelector": false,
+        "uninstallerIcon": "icons/icon.ico"
+      },
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper"
+      }
+    },
+    "resources": {
+      "../LICENSE": "licenses/KNode-LICENSE.txt",
+      "../licenses/ELKJS-LICENSE.md": "licenses/ELKJS-LICENSE.md",
+      "../licenses/ELKJS-COPYRIGHT.txt": "licenses/ELKJS-COPYRIGHT.txt",
+      "../licenses/Lucide-LICENSE.txt": "licenses/Lucide-LICENSE.txt",
+      "../licenses/Lucide-Vue-LICENSE.txt": "licenses/Lucide-Vue-LICENSE.txt",
+      "../licenses/Tauri-LICENSE-MIT.txt": "licenses/Tauri-LICENSE-MIT.txt",
+      "../licenses/RUST-LICENSES.md": "licenses/RUST-LICENSES.md",
+      "../licenses/THIRD-PARTY-NOTICES.txt": "licenses/THIRD-PARTY-NOTICES.txt"
+    }
+  },
+  "plugins": {
+    "updater": {
+      "endpoints": ["https://github.com/THESuiseiCOMET/KNode/releases/latest/download/latest.json"],
+      "pubkey": "",
+      "requireSignedVersion": true
+    }
+  },
+  "mainBinaryName": "KNode"
+}

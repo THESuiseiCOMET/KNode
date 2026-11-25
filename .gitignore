@@ -1,0 +1,32 @@
+node_modules/
+dist/
+src-tauri/target/
+src-tauri/gen/
+*.log
+.DS_Store
+
+# IDE
+.idea/
+
+# 本地环境变量，保留示例
+.env
+.env.*
+!.env.example
+
+# 签名私钥和证书容器
+*.key
+*.private.pem
+*.pfx
+*.p12
+
+# 仓库根目录的构建输出和临时工作区
+/target/
+/.knode-local/
+
+# 复制到仓库根目录的安装包和更新产物
+/*.exe
+/*.msi
+/*.sig
+/*.nsis.zip
+/*.msi.zip
+/latest.json

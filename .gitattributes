@@ -1,0 +1,8 @@
+* text=auto eol=lf
+*.png binary
+*.ico binary
+*.zip binary
+
+# Preserve trailing spaces in verbatim third-party notices.
+licenses/ELKJS-COPYRIGHT.txt whitespace=-blank-at-eol
+licenses/RUST-LICENSES.md whitespace=-blank-at-eol

@@ -1,0 +1,337 @@
+/* Progress and weight share geometry, contrast and feedback. Values never animate. */
+.capsule-control {
+  position: relative;
+  min-width: 0;
+  height: 32px;
+  touch-action: none;
+}
+.capsule-rail {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: 13px;
+  height: 6px;
+  border-radius: 6px;
+  background: #d9dce1;
+  pointer-events: none;
+}
+.capsule-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: inherit;
+  background: #252a30;
+}
+.capsule-control .capsule-thumb,
+:is(.integrated-card, .batch-color-popover)
+  :is(.weight-control, .brightness-control)
+  input[type='range']::-webkit-slider-thumb {
+  width: 40px;
+  height: 26px;
+  border: 1px solid #e5e6e9;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow:
+    0 2px 3px #20263020,
+    0 1px 1px #2026300d;
+  opacity: 1;
+}
+.capsule-control:hover .capsule-thumb,
+:is(.integrated-card, .batch-color-popover)
+  :is(.weight-control, .brightness-control)
+  input[type='range']:hover::-webkit-slider-thumb {
+  box-shadow:
+    0 3px 5px #20263028,
+    0 1px 1px #2026300d;
+}
+.weight-editor.slider-row {
+  height: 44px;
+  align-items: start;
+}
+.weight-control {
+  height: 44px;
+}
+.weight-editor .weight-value {
+  line-height: 32px;
+}
+:is(.integrated-card, .batch-color-popover)
+  :is(.weight-control, .brightness-control)
+  input[type='range'] {
+  position: absolute;
+  inset: 0 0 auto;
+  width: 100%;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+:is(.integrated-card, .batch-color-popover)
+  :is(.weight-control, .brightness-control)
+  input[type='range']::-webkit-slider-runnable-track {
+  height: 6px;
+  background: transparent;
+}
+:is(.integrated-card, .batch-color-popover)
+  :is(.weight-control, .brightness-control)
+  input[type='range']::-webkit-slider-thumb {
+  margin-top: -10px;
+}
+
+:is(.integrated-card, .batch-color-popover)
+  :is(.weight-control, .brightness-control)
+  input[type='range']:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid #718c80;
+  outline-offset: 2px;
+  box-shadow: 0 2px 3px #20263020;
+}
+.weight-ticks {
+  position: absolute;
+  top: 37px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.weight-ticks i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #b7bec7;
+}
+.static-folds .fold-entering {
+  animation: none;
+}
+.static-folds .fold-leaving {
+  transition: none;
+}
+.static-controls .capsule-control,
+.static-controls .capsule-control * {
+  transition: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .capsule-control,
+  .capsule-control * {
+    transition: none;
+  }
+}
+.title-motion {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin: 0 8px;
+  flex-shrink: 0;
+}
+.titlebar .title-motion button {
+  font-size: 11px;
+  padding: 5px 7px;
+  color: #738078;
+  border-radius: 5px;
+}
+.titlebar .title-motion button[aria-pressed='true'] {
+  color: #244d3b;
+  background: #e2ebe6;
+}
+
+/* Match property labels and numeric columns without changing slider semantics. */
+.card-properties > label,
+.color-label {
+  color: #263e34;
+}
+.slider-row {
+  grid-template-columns: minmax(0, 1fr) 40px;
+}
+.card-progress-slot .node-progress b,
+.weight-editor .weight-value {
+  width: 40px;
+  min-width: 40px;
+  box-sizing: border-box;
+  color: #263e34;
+  font-size: 16px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.node-progress b small {
+  display: inline-block;
+  width: 10px;
+  margin-left: 2px;
+  text-align: left;
+}
+.weight-editor .weight-value {
+  padding-right: 12px;
+}
+.color-heading .color-swatch {
+  flex: none;
+}
+.title-motion {
+  position: relative;
+}
+.motion-options {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 128px;
+  padding: 6px;
+  border: 1px solid #dfe6e1;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 16px #243b2f18;
+}
+.titlebar .motion-options button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+}
+.motion-options button::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border: 1px solid #b8c4bd;
+  border-radius: 3px;
+}
+.motion-options button[aria-pressed='true']::before {
+  content: '✓';
+  color: white;
+  background: #355e49;
+  border-color: #355e49;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+}
+
+/* Disk keeps rail-left alignment; the palette uses the full content right edge. */
+.color-body {
+  margin-left: 20px;
+  margin-right: 0;
+  align-items: stretch;
+}
+.color-side {
+  height: 112px;
+}
+.color-presets {
+  height: 112px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+.color-presets button[aria-pressed='true'] {
+  outline: 2px solid #52685e;
+  outline-offset: 2px;
+  box-shadow: inset 0 0 0 1px #ffffff80;
+}
+.brightness-rail {
+  background: linear-gradient(to right, #000, var(--brightness-color));
+}
+:is(.integrated-card, .batch-color-popover)
+  .brightness-control
+  input[type='range']::-webkit-slider-runnable-track {
+  background: transparent !important;
+}
+.palette-error {
+  display: block;
+  font-size: 10px;
+  color: #a33c36;
+}
+
+/* Compact cards keep their coordinates; panels mount only while explicitly open. */
+.forest-node.integrated-card {
+  min-height: 152px;
+  max-height: 480px;
+  padding: 0 10px 10px;
+  gap: var(--card-section-gap);
+  border: 1px solid color-mix(in srgb, var(--node-color) 42%, #dde4df);
+  border-top: 1px solid color-mix(in srgb, var(--node-color) 42%, #dde4df);
+  border-radius: 12px;
+  background: #fff;
+}
+.forest-node.integrated-card.without-progress {
+  height: auto;
+  min-height: 0;
+  interpolate-size: allow-keywords;
+}
+.integrated-card .card-titlebar {
+  margin: 0 -10px;
+  padding: 0 12px;
+  height: 58px;
+  min-height: 58px;
+  border-radius: 11px 11px 0 0;
+  background: color-mix(in srgb, var(--node-color) 18%, #fff);
+}
+.integrated-card .card-titlebar .node-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #263e34;
+}
+.integrated-card .card-editor {
+  --card-editor-gap: 6px;
+  gap: var(--card-editor-gap);
+}
+.integrated-card .card-properties {
+  gap: 8px;
+}
+.integrated-card .color-value-row {
+  margin-top: 6px;
+}
+.forest-node.integrated-card.selected {
+  border-color: #4b7c5a;
+}
+
+.integrated-card .color-heading {
+  margin-bottom: 5px;
+}
+
+/* The header and progress slot keep their geometry as the body mounts. */
+.integrated-card > :is(.card-titlebar, .card-progress-slot) {
+  flex: none;
+}
+
+/* Only the outer height animates. Keep panel layout at its final size so
+   temporary scrollbars cannot change the weight/brightness rail widths. */
+.forest-node.integrated-card {
+  transition: height 225ms ease;
+}
+.integrated-card .card-editor {
+  overflow: clip;
+  overflow-clip-margin: 4px;
+}
+.integrated-card .card-content {
+  flex: none;
+  height: calc(480px - 152px - 6px);
+  animation: card-panel-appear 180ms ease;
+}
+/* The mounted panel must stay out of the compact card's intrinsic height. */
+.integrated-card.without-progress .card-editor {
+  position: relative;
+}
+.integrated-card.without-progress .card-content {
+  position: absolute;
+  inset-inline: 0;
+  top: calc(var(--card-tabs-height) + var(--card-editor-gap));
+}
+@keyframes card-panel-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.static-folds .forest-node.integrated-card,
+.reduce-motion .forest-node.integrated-card {
+  transition: none;
+}
+.static-folds .card-content,
+.reduce-motion .card-content {
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .forest-node.integrated-card {
+    transition: none;
+  }
+  .integrated-card .card-content {
+    animation: none;
+  }
+}

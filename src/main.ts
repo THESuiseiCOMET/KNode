@@ -1,0 +1,10 @@
+import { createApp } from 'vue'
+import App from './App.vue'
+import '@vue-flow/core/dist/style.css'
+import '@vue-flow/core/dist/theme-default.css'
+import './style.css'
+import './ui/capsule-slider.css'
+import './ui/ui-system.css'
+import './ui/light-theme.css'
+import './ui/dark-theme.css'
+createApp(App).mount('#app')

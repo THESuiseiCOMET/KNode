@@ -1,0 +1,49 @@
+KNode third-party notices
+
+KNode is licensed under MIT. See the root LICENSE in the source repository
+or KNode-LICENSE.txt in the installed licenses directory. The components
+below retain their own licenses and copyright notices.
+
+elkjs 0.12.1 and Eclipse Layout Kernel 0.12.1
+--------------------------------------------
+KNode distributes this component under the Eclipse Public License 2.0.
+The preferred source code for making changes is available under EPL-2.0.
+Copy of the license: ELKJS-LICENSE.md
+Original copyright and license notices: ELKJS-COPYRIGHT.txt
+
+Corresponding source and build instructions:
+  elkjs 0.12.1: https://github.com/kieler/elkjs/releases/tag/0.12.1
+  Source archive: https://github.com/kieler/elkjs/archive/refs/tags/0.12.1.zip
+  Tagged build instructions: https://github.com/kieler/elkjs/blob/0.12.1/README.md
+  Eclipse ELK v0.12.1: https://github.com/eclipse-elk/elk/releases/tag/v0.12.1
+  Source archive: https://github.com/eclipse-elk/elk/archive/refs/tags/v0.12.1.zip
+  npm package: https://registry.npmjs.org/elkjs/-/elkjs-0.12.1.tgz
+
+Lucide and Feather
+------------------
+The bundled lucide-vue-next 1.0.0 package uses ISC and includes a separate
+MIT notice for portions derived from Feather by Cole Bemis. The verbatim
+package notice is in Lucide-Vue-LICENSE.txt. The existing artwork notice in
+Lucide-LICENSE.txt also preserves attribution for the affected icons.
+  Lucide: https://github.com/lucide-icons/lucide
+  npm package: https://registry.npmjs.org/lucide-vue-next/-/lucide-vue-next-1.0.0.tgz
+  Feather: https://github.com/feathericons/feather
+
+Other bundled frontend components
+---------------------------------
+FRONTEND-LICENSES.md is generated at build time from the JavaScript bundles.
+It lists bundled packages and the notices supplied in their npm packages.
+Tauri-LICENSE-MIT.txt supplies the MIT license for the Tauri JavaScript API
+and the opener and updater JavaScript packages, which also declare Apache-2.0
+as a licensing option.
+
+Rust and Windows installer components
+-------------------------------------
+RUST-LICENSES.md lists the locked Windows x64 runtime dependency versions
+and collects their license texts, copyright notices, and applicable NOTICE files.
+The file also contains the Microsoft WebView2 Loader SDK license and NOTICE,
+the NSIS licenses and source link, and the Tauri NSIS helper’s own licenses.
+
+The source code of option-ext 0.2.0 is available under MPL-2.0 at no charge:
+  https://static.crates.io/crates/option-ext/option-ext-0.2.0.crate
+  https://github.com/soc/option-ext/tree/272f22fc9ea1ac6b08f01704af52c4ac338df4e2

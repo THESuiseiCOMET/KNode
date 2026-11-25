@@ -1,0 +1,11 @@
+node_modules/
+dist/
+src-tauri/target/
+src-tauri/gen/
+package-lock.json
+AGENTS.md
+SPEC.md
+docs/DATA_SCHEMA/zh-CN/V3.md
+ARCHITECTURE.md
+TASKS.md
+ACCEPTANCE_TESTS.md

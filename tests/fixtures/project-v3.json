@@ -1,0 +1,83 @@
+{
+  "format": "forest-project",
+  "version": 3,
+  "projectId": "c0e631c4-9154-4478-b7af-a2d166e62a36",
+  "name": "V3 中文 项目",
+  "nodes": [
+    {
+      "id": "a",
+      "title": "父",
+      "parentId": null,
+      "progress": 73,
+      "weight": 0,
+      "color": "#6599cb",
+      "linkedPaths": ["../外部 文件/note.txt", "C:/中文 空格/folder"]
+    },
+    {
+      "id": "b",
+      "title": "子",
+      "parentId": "a",
+      "progress": 42,
+      "weight": 1,
+      "color": null
+    }
+  ],
+  "views": {
+    "tree": {
+      "positions": {
+        "a": {
+          "x": 10,
+          "y": 20
+        },
+        "b": {
+          "x": 400,
+          "y": 30
+        }
+      },
+      "collapsedIds": ["a"],
+      "viewport": {
+        "x": 25,
+        "y": -10,
+        "zoom": 0.8
+      }
+    },
+    "graph": {
+      "positions": {
+        "a": {
+          "x": -100,
+          "y": -200
+        },
+        "b": {
+          "x": 900,
+          "y": 1000
+        }
+      },
+      "edges": [
+        {
+          "id": "loop",
+          "source": "a",
+          "target": "a",
+          "direction": "forward",
+          "label": "重试"
+        },
+        {
+          "id": "ab",
+          "source": "a",
+          "target": "b",
+          "direction": "both"
+        },
+        {
+          "id": "ba",
+          "source": "b",
+          "target": "a",
+          "direction": "undirected"
+        }
+      ],
+      "viewport": {
+        "x": -40,
+        "y": 60,
+        "zoom": 1.8
+      }
+    }
+  }
+}
