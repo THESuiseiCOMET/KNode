@@ -1,110 +1,298 @@
-:root {
-  color-scheme: light;
-  font-family: "Segoe UI", system-ui, sans-serif;
-  background-color: #1b216f;
+* {
+    box-sizing: border-box;
 }
 
-* {
-  box-sizing: border-box;
-}
+/* 动态渐变背景 */
 
 body {
-  display: grid;
-  place-items: center;
-  min-height: 100vh;
-  min-height: 100svh;
-  margin: 0;
-  padding: 2rem 1rem;
-  color: #fff;
-  background:
-    radial-gradient(ellipse at 100% 0%, #192181 5%, transparent 65%),
-    radial-gradient(ellipse at 94% 55%, #b01a74 0%, transparent 57%),
-    radial-gradient(ellipse at 0% 100%, #ffc4d9 0%, transparent 48%),
-    linear-gradient(157deg, #142173 8%, #573788 42%, #8a3871 55%, #f47569 79%, #ffad82 100%);
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    color: #fff;
+    background: #142173;
+    isolation: isolate;
+    overflow-x: hidden;
 }
 
-.download-page {
-  display: grid;
-  justify-items: center;
-  gap: 2rem;
-  width: min(100%, 26rem);
+body::before {
+    content: "";
+    position: fixed;
+    inset: -40%;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(ellipse at 85% 5%, #192181 5%, transparent 55%),
+        radial-gradient(ellipse at 90% 45%, #b01a74 0%, transparent 50%),
+        radial-gradient(ellipse at 65% 85%, #f47569 15%, transparent 65%),
+        radial-gradient(ellipse at 10% 90%, #ffc4d9 0%, transparent 50%),
+        radial-gradient(ellipse at 95% 95%, #ffad82 10%, transparent 55%),
+        radial-gradient(ellipse at 20% 20%, #573788 0%, transparent 55%),
+        #142173;
+
+    filter: blur(60px);
+    animation: gradient-flow 8s ease-in-out infinite alternate;
 }
+
+@keyframes gradient-flow {
+    0% {
+        transform: translate(-8%, -5%) rotate(0deg) scale(1);
+    }
+
+    33% {
+        transform: translate(8%, -8%) rotate(15deg) scale(1.15);
+    }
+
+    66% {
+        transform: translate(-5%, 8%) rotate(-10deg) scale(1.1);
+    }
+
+    100% {
+        transform: translate(5%, 5%) rotate(20deg) scale(1.2);
+    }
+}
+
+main {
+    width: min(320px, calc(100% - 32px));
+}
+
+/* 标题区域 */
 
 .brand {
-  display: flex;
-  align-items: center;
-  gap: clamp(0.625rem, 2.5vw, 1rem);
-  max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 32px;
 }
 
-.brand-logo {
-  display: block;
-  flex: none;
+.logo {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
 }
 
-.brand h1 {
-  margin: 0;
-  font-size: clamp(2rem, 10.5vw, 3.75rem);
-  font-weight: 750;
-  line-height: 1;
-  letter-spacing: -0.055em;
+h1 {
+    margin: 0;
+    font-size: 56px;
+    font-weight: 750;
+    letter-spacing: -2.6px;
+    color: #ffffff;
 }
 
 .version {
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.1;
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
 }
+
+/* 下载按钮布局 */
 
 .downloads {
-  display: grid;
-  gap: 0.75rem;
-  grid-auto-rows: 1fr;
+    display: grid;
+    gap: 12px;
 }
 
-.download-link {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  min-height: 3.375rem;
-  padding: 0.625rem clamp(0.875rem, 4vw, 1.375rem);
-  border-radius: 0.8125rem;
-  background-color: #fff;
-  color: #0d0d12;
-  font-size: clamp(0.875rem, 3.8vw, 0.9375rem);
-  font-weight: 650;
-  line-height: 1.3;
-  text-decoration: none;
+/* 玻璃按钮 */
+
+.glass {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-height: 54px;
+    padding: 14px 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 13px;
+    background: rgba(255, 255, 255, 0.04);
+
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 650;
+    text-decoration: none;
+
+    backdrop-filter: blur(40px) saturate(200%);
+    -webkit-backdrop-filter: blur(2px) saturate(180%);
+
+    box-shadow:
+        inset 1px 1px 1px rgba(255, 255, 255, 0.75),
+        inset -1px -1px 2px rgba(255, 255, 255, 0.2),
+        0 4px 18px rgba(0, 0, 0, 0.22);
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        box-shadow 0.18s ease;
 }
 
-.download-link img {
-  flex: none;
-  object-fit: contain;
+/* 第一层：斜向反光 */
+
+.glass::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    z-index: 0;
+
+    border-radius: inherit;
+    pointer-events: none;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.7) 0%,
+        rgba(255, 255, 255, 0.12) 35%,
+        transparent 65%,
+        rgba(255, 255, 255, 0.3) 100%
+    );
 }
 
-.download-password {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.35em;
-  margin-inline-start: auto;
-  color: #49464f;
-  font-size: 0.8125rem;
-  white-space: nowrap;
+/* 第二层：局部高光与内侧反射 */
+
+.glass::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    border-radius: inherit;
+    pointer-events: none;
+
+    background: radial-gradient(
+        circle at 30% 20%,
+        rgba(255, 255, 255, 0.24),
+        transparent 60%
+    );
+
+    box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.55),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.08);
 }
 
-.download-link:hover {
-  background-color: #f5f2f7;
+.glass > * {
+    position: relative;
+    z-index: 2;
 }
 
-.download-link:active {
-  background-color: #eae6ee;
+.glass img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    flex-shrink: 0;
+
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
 }
 
-.download-link:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 3px;
+.glass .github-icon {
+    filter:
+        brightness(0)
+        invert(1)
+        drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+}
+
+.glass span {
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.password {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 500;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+/* 悬停效果 */
+
+.glass:hover {
+    background: rgba(255, 255, 255, 0.36);
+
+    box-shadow:
+        inset 1px 1px 2px rgba(255, 255, 255, 0.85),
+        inset -1px -1px 2px rgba(255, 255, 255, 0.22),
+        0 6px 24px rgba(0, 0, 0, 0.28);
+}
+
+.glass:active {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* 底部 GitHub 入口 */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin-top: 20px;
+    padding: 0 5px;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    color: #ffffff;
+    font-size: 12px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+nav svg {
+    width: 18px;
+    height: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+a:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
+
+/* 移动端 */
+
+@media (max-width: 360px) {
+    h1 {
+        font-size: 44px;
+    }
+
+    .logo {
+        width: 52px;
+        height: 52px;
+    }
+
+    .glass {
+        padding-inline: 12px;
+    }
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+    .glass {
+        background: rgba(30, 20, 60, 0.35);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .glass {
+        transition: none;
+    }
+
+    body::before {
+        animation: none;
+    }
 }
 
 .copy-status {
@@ -129,145 +317,40 @@ body {
   pointer-events: none;
 }
 
-.download-stack {
-  position: relative;
-  display: grid;
-  gap: 0.75rem;
-  width: min(100%, 20rem);
+main { position: relative; }
+
+.github-profile {
+    height: 18px;
 }
 
-.repo-card {
-  display: grid;
-  gap: 0.875rem;
-  padding: 0.875rem;
-  border-radius: 0.8125rem;
-  background: #fff;
-  color: #0d0d12;
-}
-
-.repo-card a {
-  min-width: 0;
-  color: inherit;
-  text-decoration: none;
-}
-
-.repo-card a:hover {
-  text-decoration: underline;
-}
-
-.repo-card a:focus-visible {
-  outline: 2px solid #573788;
-  outline-offset: 3px;
-}
-
-.repo-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 0.5rem 0.75rem;
-}
-
-.repo-identity,
-.repo-contributor,
-.repo-icon {
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
-}
-
-.repo-identity img,
-.repo-contributor img {
-  flex: none;
-}
-
-.repo-name,
-.repo-people,
-#repo-contributors {
-  display: grid;
-  gap: 0.25rem;
-}
-
-.repo-name strong {
-  font-size: 0.9375rem;
-}
-
-.repo-name > span,
-.repo-people-label {
-  font-size: 0.6875rem;
-  color: #5b5762;
-}
-
-.repo-people {
-  justify-items: end;
-  margin-inline-start: auto;
-}
-
-#repo-contributors {
-  justify-items: end;
-  min-width: 0;
-}
-
-.repo-contributor {
-  font-size: 0.6875rem;
-  overflow-wrap: anywhere;
-}
-
-.repo-contributor img {
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.repo-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.5rem 0.375rem;
-  color: #5b5762;
-  font-size: 0.6875rem;
-}
-
-.repo-links a {
-  display: grid;
-  justify-items: center;
-  gap: 0.25rem;
-}
-
-.repo-icon {
-  min-height: 0.875rem;
-  font-variant-numeric: tabular-nums;
-}
-
-.repo-icon svg {
-  width: 0.875rem;
-  height: 0.875rem;
+.github-profile img {
+    flex: none;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .type-slot {
-  position: relative;
-}
-
-.version {
-  flex: none;
-  inline-size: 9ch;
+    position: relative;
+    flex: none;
 }
 
 .type-ink {
-  position: absolute;
-  inset: 0 auto auto 0;
-  white-space: nowrap;
+    position: absolute;
+    inset: 0 auto auto 0;
+    white-space: nowrap;
 }
 
+.typing-pending .type-value,
 .is-typing .type-value {
-  opacity: 0;
+    opacity: 0;
 }
 
-.type-ink.with-caret::after {
-  content: "";
-  display: inline-block;
-  width: 0.065em;
-  min-width: 1px;
-  height: 0.8em;
-  margin-inline-start: 0.08em;
-  background: currentColor;
+.type-caret:not([hidden]) {
+    animation: caret-blink 800ms step-end infinite;
+}
+
+@keyframes caret-blink {
+    50% {
+        opacity: 0;
+    }
 }
