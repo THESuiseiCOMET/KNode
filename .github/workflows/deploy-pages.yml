@@ -25,9 +25,27 @@ jobs:
         with:
           persist-credentials: false
       - uses: actions/configure-pages@v5
+      - name: Version CSS and JavaScript URLs
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $output = Join-Path $env:RUNNER_TEMP 'knode-pages'
+          Copy-Item -LiteralPath 'website' -Destination $output -Recurse
+          $entry = Join-Path $output 'index.html'
+          $html = [IO.File]::ReadAllText($entry)
+          foreach ($asset in @('styles.css', 'script.js')) {
+            $source = Join-Path $output $asset
+            $hash = (Get-FileHash -LiteralPath $source -Algorithm SHA256).Hash.Substring(0, 12).ToLowerInvariant()
+            $name = [IO.Path]::GetFileNameWithoutExtension($asset) + '.' + $hash + [IO.Path]::GetExtension($asset)
+            $reference = '"' + $asset + '"'
+            if (-not $html.Contains($reference)) { throw "Missing $asset reference in index.html" }
+            Copy-Item -LiteralPath $source -Destination (Join-Path $output $name)
+            $html = $html.Replace($reference, ('"' + $name + '"'))
+          }
+          [IO.File]::WriteAllText($entry, $html, [Text.UTF8Encoding]::new($false))
       - uses: actions/upload-pages-artifact@v4
         with:
-          path: website
+          path: ${{ runner.temp }}/knode-pages
   deploy:
     needs: package
     if: github.ref == 'refs/heads/main'
