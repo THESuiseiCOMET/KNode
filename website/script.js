@@ -79,4 +79,90 @@ lanzouDownload.addEventListener('click', async () => {
   }, copied ? 2000 : 4000);
 });
 
-loadLatestRelease();
+
+const delay = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
+
+async function typeText(slot) {
+  const value = slot.querySelector('.type-value').textContent;
+  const ink = slot.querySelector('.type-ink');
+  ink.classList.add('with-caret');
+  for (const letter of value) {
+    ink.textContent += letter;
+    await delay(65);
+  }
+  return ink;
+}
+
+async function typeBrand(releaseReady) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const brand = document.querySelector('.brand');
+  brand.classList.add('is-typing');
+  const title = await typeText(brand.querySelector('h1'));
+  await releaseReady;
+  title.classList.remove('with-caret');
+  const versionInk = await typeText(brand.querySelector('.version'));
+  versionInk.classList.remove('with-caret');
+  title.textContent = '';
+  versionInk.textContent = '';
+  brand.classList.remove('is-typing');
+}
+
+async function readGithubResource(path) {
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 5000);
+  try {
+    const response = await fetch('https://api.github.com/repos/' + repository + path, {
+      headers: { Accept: 'application/vnd.github+json' },
+      signal: controller.signal,
+    });
+    if (response.ok) return await response.json();
+  } catch {
+    // Leave the local repository information in place.
+  } finally {
+    window.clearTimeout(timeout);
+  }
+  return null;
+}
+
+async function loadRepositoryCounts() {
+  const data = await readGithubResource('');
+  const formatter = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 });
+  for (const [id, count] of [['repo-stars', data?.stargazers_count], ['repo-forks', data?.forks_count]]) {
+    if (Number.isSafeInteger(count) && count >= 0) {
+      document.getElementById(id).textContent = formatter.format(count);
+    }
+  }
+}
+
+async function loadContributors() {
+  const contributors = await readGithubResource('/contributors?per_page=3');
+  if (!Array.isArray(contributors)) return;
+
+  const list = document.querySelector('#repo-contributors');
+  const fallback = list.querySelector('.repo-contributor');
+  const links = contributors.slice(0, 3)
+    .filter((person) => typeof person?.login === 'string' && /^[a-z0-9-]+(?:\[bot\])?$/i.test(person.login))
+    .map((person) => {
+      const link = fallback.cloneNode(true);
+      link.href = 'https://github.com/' + encodeURIComponent(person.login);
+      link.querySelector('span').textContent = person.login;
+      const avatar = link.querySelector('img');
+      if (typeof person.avatar_url === 'string' && person.avatar_url.startsWith('https://avatars.githubusercontent.com/')) {
+        avatar.addEventListener('error', () => {
+          if (link.href === fallback.href) avatar.src = fallback.querySelector('img').src;
+          else avatar.remove();
+        }, { once: true });
+        avatar.src = person.avatar_url;
+      } else if (link.href !== fallback.href) {
+        avatar.remove();
+      }
+      return link;
+    });
+
+  if (links.length) list.replaceChildren(...links);
+}
+
+typeBrand(loadLatestRelease());
+loadRepositoryCounts();
+loadContributors();
