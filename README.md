@@ -1,12 +1,12 @@
 <p align="center">
-  简体中文 · <a href="docs/README/en/README.md">English</a>
-</p>
-
-<p align="center">
   <img src="src-tauri/icons/64x64.png" alt="KNode Logo" width="64" height="64" />
 </p>
 
-# KNode
+<h1 align="center">KNode</h1>
+
+<p align="center">
+  <sub>简体中文 · <a href="docs/README/en/README.md">English</a></sub>
+</p>
 
 KNode 是一款本地优先的 Windows 项目与知识整理工具。你可以用树视图拆解项目、归类资料，再切到图视图查看组件依赖、工作流程或知识关联。同一个节点可以在两种视图中使用。节点内部文件随项目保存在本地，关联的外部文件保留在原位置。
 
@@ -21,6 +21,12 @@ KNode 结合了德语 **Knoten** 和英语 **Node**。两个词都可以指「�
 - **节点文件管理**　导入的内部文件存放在项目内的节点目录。关联本机已有的文件或文件夹时，项目只记录路径，原件留在原位置。
 - **TXT 与 Markdown**　可为节点新建 `.txt` 或 `.md` 文件，记录说明、需求和笔记。
 - **四向自动整理**　支持从左到右、从上到下、从右到左、从下到上的整理方向。树按父子层级排列。图中由至少三个节点组成、无分支、自环或平行边的独立简单链，沿选定方向排成一行或一列。其余关系（包括环状连接）使用基于 ELK Stress 的二维布局。
+
+## 开始页面
+
+可以新建项目、打开已有项目，也可以从最近打开的项目列表继续。
+
+![KNode 开始页面，显示最近打开的项目以及新建和打开项目按钮](docs/images/start-screen.png)
 
 ## 树视图与图视图
 

@@ -1,8 +1,8 @@
-<p align="center">
-  <a href="../../../README.md">简体中文</a> · English
-</p>
+<h1 align="center">KNode</h1>
 
-# KNode
+<p align="center">
+  <sub><a href="../../../README.md">简体中文</a> · English</sub>
+</p>
 
 KNode is a local-first Windows app for organizing projects and knowledge. Use Tree View to break a project into tasks and organize your materials, then switch to Graph View to map dependencies, workflows, or connections between ideas. Both views use the same nodes. Internal node files are stored locally with the project, and linked external files stay in their original locations.
 
@@ -17,6 +17,12 @@ KNode combines the German word **Knoten** and the English word **Node**. Both ca
 - **Node file management** stores imported files in the node’s folder within the project. When you link an existing file or folder on your computer, the project records its path and leaves the original in place.
 - **TXT and Markdown** files can be created for any node to record descriptions, requirements, and notes.
 - **Four-direction auto layout** supports left to right, top to bottom, right to left, and bottom to top. Tree View follows the parent-child hierarchy. In Graph View, standalone chains of at least three nodes with no branches, self-loops, or parallel edges line up in a row or column along the selected direction. Other graphs, including those with cycles, use a two-dimensional layout based on ELK Stress.
+
+## Start Screen
+
+Create a project, open an existing one, or pick up where you left off from the recent projects list.
+
+![KNode start screen with recent projects and buttons to create or open a project](../../images/start-screen.png)
 
 ## Tree View and Graph View
 
